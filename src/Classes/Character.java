@@ -21,6 +21,8 @@ public abstract class Character {
         this.isAlive = isAlive;
     }
 
+
+
     public void chooseYourCharacter(){
 
 

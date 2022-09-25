@@ -13,7 +13,8 @@ public class Index extends Character  {
     ArrayList<String> myArrayList = new ArrayList<String>();
 
     public int numElements = 3;
-    String[] myDataArray = new String[numElements];
+    String[] myDataArray = new String[]{"[1] CREATE & PERSONALIZE TEAMS", "[2] START BATTLE", "[0] EXIT" };
+
 
     static String gameName = "RPG GAME";
 
@@ -31,13 +32,6 @@ public class Index extends Character  {
     }
 
     //CONSTRUCTOR CARGAR EL MENU DE ACCIONES EN UN ARRAY:
-
-    public void Index() {
-        myDataArray[0] = "[1] CHOOSE YOUR CHARACTERS";
-        myDataArray[1] = "[2] START BATTLE";
-        myDataArray[2] = "[0] EXIT";
-
-    }
 
     public boolean intro(){
         System.out.println("[1] Start Game\n[0] Exit");
@@ -72,7 +66,9 @@ public class Index extends Character  {
 
         switch (action){
             case 1:
-                chooseYourCharacter();
+                chooseYourCharacterTeam1();
+//                chooseYourCharacterTeam2();
+//                System.out.println("Your team 1: " + chooseYourCharacterTeam1()+ "\nYour team 2: " + chooseYourCharacterTeam2());
                 break;
 
             case 2:
@@ -89,12 +85,10 @@ public class Index extends Character  {
         }
         return result;
     }
-
     @Override
     void position() {
         
     }
-
     @Override
     void health() {
 

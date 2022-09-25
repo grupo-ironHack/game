@@ -11,16 +11,16 @@ public class Main {
         boolean repeat = true;
 
         if (step1) {
-
             //STEP 2: ACCION A REALIZAR
             step2 = Steps.options();
+            String resultActions = Steps.accions(step2);
 
             //MIENTRAS SU VALOR SEA VERDADERO:
             while (repeat) {
 
                 if (Steps.hp > 0) {
-                    String resultActions = Steps.accions(step2);
-
+//                    String resultActions = Steps.accions(step2);
+                    repeat = false;
 
                     //SI EXISTE LA ACCION AÑADIMOS LA ACCION SELECCIONADA:
                     if (step2 > 0 && step2 < (Steps.numElements)) {

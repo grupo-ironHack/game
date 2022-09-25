@@ -10,16 +10,19 @@ import java.util.Scanner;
 public class Warrior extends Character implements Attacker {
 
     int stamina = (int)(Math.random()*(50-10+1)+10);
-    int strenght = (int)(Math.random()*10+1);
+    int strength = (int)(Math.random()*10+1);
+
 
    //CONSTRUCTORS:
-    public Warrior(int id, String name, double hp, boolean isAlive) {
+
+    public Warrior(int id, String name, double hp, boolean isAlive, int stamina, int strength) {
         super(id, name, hp, isAlive);
-
-
+        this.stamina = stamina;
+        this.strength = strength;
     }
 
-    public void chooseYourCharacter() {
+
+    /*public void chooseYourCharacter() {
         super.chooseYourCharacter();
         Scanner warrior1 = new Scanner(System.in);
         System.out.println("Choose a name for the firs warrior:");
@@ -39,17 +42,17 @@ public class Warrior extends Character implements Attacker {
         team.add(userName2);
         team.add(userName3);
 
-    }
+    }*/
 
     public void hardAttack() {
-        int hardAttack = strenght;
+        int hardAttack = strength;
         stamina = stamina - 5;
 
     }
 
     public void softAttack(){
-        BigDecimal softAttack = (BigDecimal.valueOf(strenght / 2).setScale(2, RoundingMode.DOWN));
-                strenght = strenght + 1;
+        BigDecimal softAttack = (BigDecimal.valueOf(strength / 2).setScale(2, RoundingMode.DOWN));
+                strength = strength + 1;
     }
 
 
@@ -87,8 +90,18 @@ public class Warrior extends Character implements Attacker {
     }
 
     public int getStrenght() {
-        return strenght;
+        return strength;
     }
 
-
+    @Override
+    public String toString() {
+        return "Warrior{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", hp=" + hp +
+                ", isAlive=" + isAlive +
+                ", stamina=" + stamina +
+                ", strength=" + strength +
+                '}';
+    }
 }

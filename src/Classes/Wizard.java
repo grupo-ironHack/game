@@ -64,12 +64,12 @@ public class Wizard extends Character implements Attacker {
     @Override
     public String toString() {
         return "Wizard{" +
-                "id=" + id +
+                "mana=" + mana +
+                ", intelligence=" + intelligence +
+                ", id=" + id +
                 ", name='" + name + '\'' +
                 ", hp=" + hp +
                 ", isAlive=" + isAlive +
-                ", mana=" + mana +
-                ", intelligence=" + intelligence +
                 '}';
     }
 }

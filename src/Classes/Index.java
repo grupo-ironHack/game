@@ -2,6 +2,7 @@ package Classes;
 
 
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -27,7 +28,6 @@ public class Index extends Character  {
     boolean introSelector = false;
 
     public Index(int id, String name, double hp, boolean isAlive) {
-
         super(id, name, hp, isAlive);
     }
 
@@ -67,8 +67,7 @@ public class Index extends Character  {
         switch (action){
             case 1:
                 chooseYourCharacterTeam1();
-//                chooseYourCharacterTeam2();
-//                System.out.println("Your team 1: " + chooseYourCharacterTeam1()+ "\nYour team 2: " + chooseYourCharacterTeam2());
+                // Here should call, maybe a second method with a team2 inside.
                 break;
 
             case 2:

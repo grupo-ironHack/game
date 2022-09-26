@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Index extends Character {
+public class Index extends Wizard & Warrior {
     Scanner startIndex = new Scanner(System.in);
 
     //ARRAY LIST:

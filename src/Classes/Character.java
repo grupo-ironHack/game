@@ -1,21 +1,21 @@
 package Classes;
 
-import Interfaces.Attacker;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Character {
 
-    int id;
+    static int id = 0;
+
+    int newId;
     String name;
     double hp;
     boolean isAlive;
 
 
 
-    public Character(int id, String name, double hp, boolean isAlive) {
-        this.id = id;
+    public Character(int newId, String name, double hp, boolean isAlive) {
+        this.newId = id++;
         this.name = name;
         this.hp = hp;
         this.isAlive = isAlive;
@@ -49,11 +49,11 @@ public abstract class Character {
 
     //GETTERS & SETTERS:
     public int getId() {
-        return id;
+        return newId;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.newId = id;
     }
 
     public String getName() {

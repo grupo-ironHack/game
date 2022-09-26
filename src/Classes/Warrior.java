@@ -13,8 +13,8 @@ public class Warrior extends Character implements Attacker {
     int strenght = (int)(Math.random()*10+1);
 
    //CONSTRUCTORS:
-    public Warrior(int id, String name, double hp, boolean isAlive) {
-        super(id, name, hp, isAlive);
+    public Warrior(int newId,String name, double hp, boolean isAlive) {
+        super(newId,name, hp, isAlive);
 
 
     }

@@ -6,35 +6,25 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Wizard extends Character implements Attacker {
+    int mana;
+    int intelligence;
+    static String[] listNames = {"ingrid", "pol", "Diana", "Mario bros"};
 
-    int mana = (int)(Math.random()*(50-10+1)+10);
-    int intelligence = (int)(Math.random()*(50-1+1)+1);;
-
-    public Wizard(int id, String name, double hp, boolean isAlive, int mana, int intelligence) {
-        super(id, name, hp, isAlive);
-        this.mana = mana;
-        this.intelligence = intelligence;
+    public Wizard( String name, double hp, int mana, int intelligence) {
+        super( name, hp);
+        setMana(mana);
+        setIntelligence(intelligence);
     }
 
-    public void chooseYourCharacter() {
-        super.chooseYourCharacter();
-        Scanner wizard1 = new Scanner(System.in);
-        System.out.println("Choose a name for the firs wizard:");
-        String userName1 = wizard1.nextLine();
+    public Wizard() {
+        super(listNames[(int)(Math.random()* listNames.length)], (int)(Math.random()*10+1) );
+    }
 
-        Scanner wizard2 = new Scanner(System.in);
-        System.out.println("Choose a name for the second wizard:");
-        String userName2 = wizard2.nextLine();
-
-        Scanner wizard3 = new Scanner(System.in);
-        System.out.println("Choose a name for the third wizard:");
-        String userName3 = wizard3.nextLine();
-
-        ArrayList<String> team = new ArrayList<String>();
-
-        team.add(userName1);
-        team.add(userName2);
-        team.add(userName3);
+    public void randomWizard(){
+        setName(listNames[(int)(Math.random()* listNames.length)]);
+        setHp((int)(Math.random()*(100-50+1)+50));
+        setMana((int)(Math.random()*(50-10+1)+10));
+        setIntelligence((int)(Math.random()*(50-1+1)+1));
 
     }
 
@@ -46,7 +36,6 @@ public class Wizard extends Character implements Attacker {
     public void hitStick(){
         int stickStrike = 2;
         mana = mana + 1;
-
     }
     public void typeAttack() {
         if (mana > 5){
@@ -54,32 +43,47 @@ public class Wizard extends Character implements Attacker {
         } else {
             hitStick();
         }
-
     }
-
     public void returnTeam() {
 
     }
-
     public void goingCementery() {
 
     }
-
     void position() {
 
     }
-
     void health() {
 
     }
 
-    //GETTERS:
+    //GETTERS & SETTERS:
 
     public int getMana() {
         return mana;
     }
 
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
+    public void setIntelligence(int intelligence) {
+        this.intelligence = intelligence;
+    }
+
     public int getIntelligence() {
         return intelligence;
+    }
+
+    @Override
+    public String toString() {
+        return "Wizard{" +
+                "mana=" + mana +
+                ", intelligence=" + intelligence +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", hp=" + hp +
+                ", isAlive=" + isAlive +
+                '}';
     }
 }

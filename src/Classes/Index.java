@@ -1,21 +1,21 @@
 package Classes;
 
-
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Index extends Character  {
+public class Index {
+
+    private Warrior warrrior;
+    private Wizard wizard;
+
+    private Character character;
     Scanner startIndex = new Scanner(System.in);
 
+
     //ARRAY LIST:
-    ArrayList<String> myArrayList = new ArrayList<String>();
-
+//    ArrayList<String> myArrayList = new ArrayList<String>();
     public int numElements = 3;
-
-    String[] myDataArray = new String[]{"[1] CHOOSE YOUR CHARACTERS", "[2] START BATTLE", "[0] EXIT"};
-
+    String[] myDataArray = new String[]{"[1] CREATE & PERSONALIZE TEAMS", "[2] START BATTLE", "[0] EXIT" };
     static String gameName = "RPG GAME";
 
     //VARIABLES PARA HACER FUNCIONAR INDICE (PRUEBAS)
@@ -26,25 +26,17 @@ public class Index extends Character  {
 
     boolean introSelector = false;
 
-    public Index(int id, String name, double hp, boolean isAlive) {
-
-        super(id, name, hp, isAlive);
-    }
-
-    //ESTE CONSTRUCTOR CARGAR EL MENU DE ACCIONES EN UN ARRAY:
-
-    public void Index() {
-        myDataArray[0] = "[1] CHOOSE YOUR CHARACTERS";
-        myDataArray[1] = "[2] START BATTLE";
-        myDataArray[2] = "[0] EXIT";
-
-    }
-
+    //CONSTRUCTOR CARGAR EL MENU DE ACCIONES EN UN ARRAY:
     public boolean intro(){
         System.out.println("[1] Start Game\n[0] Exit");
         System.out.println("Select an option");
 
-        if(startIndex.nextInt() == 1) introSelector = true;
+        if(startIndex.nextInt() == 1) {
+            introSelector = true;
+        } else {
+            System.out.println("Good Bye");
+            introSelector = false;
+        }
 
         return introSelector;
     }
@@ -62,22 +54,23 @@ public class Index extends Character  {
         System.out.println(strOptions);
         System.out.println("Select Action:\n");
 
-
         option = startIndex.nextInt();
 
         return option;
     }
 
     //EJECUTAR LAS ACCIONES:
-    public String accions(int action){
+    /*public String accions(int action){
 
         switch (action){
             case 1:
-                chooseYourCharacter();
+                Character.chooseYourCharacterTeam1();
+//                wizard.chooseYourCharacterTeam1();
+                // Here should call, maybe a second method with a team2 inside.
                 break;
 
             case 2:
-                isAlive();
+                wizard.isAlive();
                 break;
 
             case 3:
@@ -91,13 +84,13 @@ public class Index extends Character  {
         return result;
     }
 
-    @Override
+    */
+  /*  @Override
     void position() {
         
     }
-
     @Override
     void health() {
 
-    }
+    }*/
 }

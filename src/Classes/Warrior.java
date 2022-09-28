@@ -9,17 +9,34 @@ import java.util.Scanner;
 
 public class Warrior extends Character implements Attacker {
 
-    int stamina = (int)(Math.random()*(50-10+1)+10);
-    int strenght = (int)(Math.random()*10+1);
+    int stamina;
+    int strength;
+
+    static String[] listNames = {"ingrid", "pol", "Diana", "Mario bros"};
+
 
    //CONSTRUCTORS:
-    public Warrior(int id, String name, double hp, boolean isAlive) {
-        super(id, name, hp, isAlive);
+
+    public Warrior(String name, double hp, int strength) {
+        super(name, hp);
+        getStamina();
+        this.strength = strength;
+    }
+    //Especificar el random del hp
+    public Warrior() {
+        super(listNames[(int)(Math.random()* listNames.length)], (int)(Math.random()*10+1));
+    }
+
+    public void randomWarrior(){
+        setName(listNames[(int)(Math.random()* listNames.length)]);
+        setHp((int)(Math.random()*(200-100+1)+100));
+        setStamina((int)(Math.random()*(50-10+1)+10));
+        setStamina((int)(Math.random()*10+1));
 
 
     }
 
-    public void chooseYourCharacter() {
+    /*public void chooseYourCharacter() {
         super.chooseYourCharacter();
         Scanner warrior1 = new Scanner(System.in);
         System.out.println("Choose a name for the firs warrior:");
@@ -39,17 +56,17 @@ public class Warrior extends Character implements Attacker {
         team.add(userName2);
         team.add(userName3);
 
-    }
+    }*/
 
     public void hardAttack() {
-        int hardAttack = strenght;
+        int hardAttack = strength;
         stamina = stamina - 5;
 
     }
 
     public void softAttack(){
-        BigDecimal softAttack = (BigDecimal.valueOf(strenght / 2).setScale(2, RoundingMode.DOWN));
-                strenght = strenght + 1;
+        BigDecimal softAttack = (BigDecimal.valueOf(strength / 2).setScale(2, RoundingMode.DOWN));
+                strength = strength + 1;
     }
 
 
@@ -82,13 +99,31 @@ public class Warrior extends Character implements Attacker {
 
     //GETTERS & SETTERS:
 
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
     public int getStamina() {
         return stamina;
     }
 
     public int getStrenght() {
-        return strenght;
+        return strength;
     }
 
-
+    @Override
+    public String toString() {
+        return "Warrior{" +
+                "stamina=" + stamina +
+                ", strength=" + strength +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", hp=" + hp +
+                ", isAlive=" + isAlive +
+                '}';
+    }
 }

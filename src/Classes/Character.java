@@ -1,6 +1,7 @@
 package Classes;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public abstract class Character {
@@ -118,6 +119,14 @@ public abstract class Character {
     }
 
     //METODOS:
+
+    public void randomName(){
+        String[] name1 = new String[6];
+
+        Random rnd = new Random();
+
+        String nombre = name1[rnd.nextInt(name1.length) ];
+    }
 
     abstract void position();
     abstract void health();

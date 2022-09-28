@@ -1,5 +1,7 @@
 import Classes.Index;
 
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -16,7 +18,7 @@ public class Main {
             String resultActions = Steps.accions(step2);
 
             //MIENTRAS SU VALOR SEA VERDADERO:
-            while (repeat) {
+            while (repeat)
 
                 if (Steps.hp > 0) {
 //                    String resultActions = Steps.accions(step2);
@@ -36,5 +38,7 @@ public class Main {
 
             }
         }
+
+
     }
 }

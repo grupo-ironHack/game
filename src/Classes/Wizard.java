@@ -8,11 +8,16 @@ import java.util.Scanner;
 public class Wizard extends Character implements Attacker {
     int mana = (int)(Math.random()*(50-10+1)+10);
     int intelligence = (int)(Math.random()*(50-1+1)+1);;
+    static String[] listNames = {"ingrid", "pol", "Diana", "Mario bros"};
 
-    public Wizard(int id, String name, double hp, boolean isAlive, int mana, int intelligence) {
-        super(id, name, hp, isAlive);
+    public Wizard( String name, double hp, int mana, int intelligence) {
+        super( name, hp);
         setMana(mana);
         setIntelligence(intelligence);
+    }
+
+    public Wizard() {
+        super(listNames[(int)(Math.random()* listNames.length)], (int)(Math.random()*10+1) );
     }
 
     public void fireBall(){

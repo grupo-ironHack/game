@@ -1,9 +1,11 @@
 import Classes.Index;
+import Classes.Party;
 
 public class Main {
     public static void main(String[] args) {
 
-        Index Steps = new Index(1, "Pol", 10, true);
+        Index Steps = new Index();
+        Party partyStep = new Party();
 
         //STEP 1: ACCION A REALIZAR:
         boolean step1 = Steps.intro();
@@ -13,7 +15,7 @@ public class Main {
         if (step1) {
             //STEP 2: ACCION A REALIZAR
             step2 = Steps.options();
-            String resultActions = Steps.accions(step2);
+            String resultActions = partyStep.accions(step2);
 
             //MIENTRAS SU VALOR SEA VERDADERO:
             while (repeat) {

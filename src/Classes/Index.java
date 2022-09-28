@@ -1,22 +1,21 @@
 package Classes;
 
-
-
-import java.sql.SQLOutput;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Index extends Character  {
+public class Index {
+
+    private Warrior warrrior;
+    private Wizard wizard;
+
+    private Character character;
     Scanner startIndex = new Scanner(System.in);
 
-    //ARRAY LIST:
-    ArrayList<String> myArrayList = new ArrayList<String>();
 
+    //ARRAY LIST:
+//    ArrayList<String> myArrayList = new ArrayList<String>();
     public int numElements = 3;
     String[] myDataArray = new String[]{"[1] CREATE & PERSONALIZE TEAMS", "[2] START BATTLE", "[0] EXIT" };
-
-
     static String gameName = "RPG GAME";
 
     //VARIABLES PARA HACER FUNCIONAR INDICE (PRUEBAS)
@@ -27,12 +26,7 @@ public class Index extends Character  {
 
     boolean introSelector = false;
 
-    public Index(int id, String name, double hp, boolean isAlive) {
-        super(id, name, hp, isAlive);
-    }
-
     //CONSTRUCTOR CARGAR EL MENU DE ACCIONES EN UN ARRAY:
-
     public boolean intro(){
         System.out.println("[1] Start Game\n[0] Exit");
         System.out.println("Select an option");
@@ -55,23 +49,23 @@ public class Index extends Character  {
         System.out.println(strOptions);
         System.out.println("Select Action:\n");
 
-
         option = startIndex.nextInt();
 
         return option;
     }
 
     //EJECUTAR LAS ACCIONES:
-    public String accions(int action){
+    /*public String accions(int action){
 
         switch (action){
             case 1:
-                chooseYourCharacterTeam1();
+                Character.chooseYourCharacterTeam1();
+//                wizard.chooseYourCharacterTeam1();
                 // Here should call, maybe a second method with a team2 inside.
                 break;
 
             case 2:
-                isAlive();
+                wizard.isAlive();
                 break;
 
             case 3:
@@ -84,12 +78,14 @@ public class Index extends Character  {
         }
         return result;
     }
-    @Override
+
+    */
+  /*  @Override
     void position() {
         
     }
     @Override
     void health() {
 
-    }
+    }*/
 }

@@ -12,15 +12,19 @@ public class Warrior extends Character implements Attacker {
     int stamina = (int)(Math.random()*(50-10+1)+10);
     int strength = (int)(Math.random()*10+1);
 
+    static String[] listNames = {"ingrid", "pol", "Diana", "Mario bros"};
 
    //CONSTRUCTORS:
 
-    public Warrior(int id, String name, double hp, boolean isAlive, int stamina, int strength) {
-        super(id, name, hp, isAlive);
+    public Warrior(String name, double hp, int stamina, int strength) {
+        super(name, hp);
         this.stamina = stamina;
         this.strength = strength;
     }
-
+    //Especificar el random del hp
+    public Warrior() {
+        super(listNames[(int)(Math.random()* listNames.length)], (int)(Math.random()*10+1) );
+    }
 
     /*public void chooseYourCharacter() {
         super.chooseYourCharacter();

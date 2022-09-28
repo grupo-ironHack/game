@@ -13,7 +13,8 @@ public class Index extends Character  {
     ArrayList<String> myArrayList = new ArrayList<String>();
 
     public int numElements = 3;
-    String[] myDataArray = new String[numElements];
+
+    String[] myDataArray = new String[]{"[1] CHOOSE YOUR CHARACTERS", "[2] START BATTLE", "[0] EXIT"};
 
     static String gameName = "RPG GAME";
 
@@ -30,7 +31,7 @@ public class Index extends Character  {
         super(id, name, hp, isAlive);
     }
 
-    //CONSTRUCTOR CARGAR EL MENU DE ACCIONES EN UN ARRAY:
+    //ESTE CONSTRUCTOR CARGAR EL MENU DE ACCIONES EN UN ARRAY:
 
     public void Index() {
         myDataArray[0] = "[1] CHOOSE YOUR CHARACTERS";

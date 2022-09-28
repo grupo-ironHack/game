@@ -5,7 +5,7 @@ public class Main {
 
         Index Steps = new Index(1, "Pol", 10, true);
 
-        //STEP 1: ACCION A REALIZAR:
+        //STEP 1: INICIAR JUEGO:
         boolean step1 = Steps.intro();
         int step2;
         boolean repeat = true;
@@ -24,7 +24,7 @@ public class Main {
 
                     //SI EXISTE LA ACCION AÑADIMOS LA ACCION SELECCIONADA:
                     if (step2 > 0 && step2 < (Steps.numElements)) {
-                        resultActions = "ACTION [" + step1 + "]:\n\t" + resultActions;
+                        resultActions = "ACTION [" + step2 + "]:\n\t" + resultActions;
                     }
 
                     //MOSTRAMOS RESULTADO DE LA ACCION SELECCIONADA:

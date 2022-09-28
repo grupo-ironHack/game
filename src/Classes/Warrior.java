@@ -22,6 +22,13 @@ public class Warrior extends Character implements Attacker {
         getStamina();
         this.strength = strength;
     }
+
+    public Warrior(String name, double hp, int stamina, int strength) {
+        super(name, hp);
+        this.stamina = stamina;
+        this.strength = strength;
+    }
+
     //Especificar el random del hp
     public Warrior() {
         super(listNames[(int)(Math.random()* listNames.length)], (int)(Math.random()*10+1));
@@ -32,8 +39,6 @@ public class Warrior extends Character implements Attacker {
         setHp((int)(Math.random()*(200-100+1)+100));
         setStamina((int)(Math.random()*(50-10+1)+10));
         setStamina((int)(Math.random()*10+1));
-
-
     }
 
     /*public void chooseYourCharacter() {

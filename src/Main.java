@@ -4,9 +4,7 @@ import Classes.Wizard;
 
 public class Main {
     public static void main(String[] args) {
-        Wizard wizard = new Wizard();
-        wizard.randomWizard();
-        System.out.println(wizard);
+
 
         Index Steps = new Index();
         Party partyStep = new Party();

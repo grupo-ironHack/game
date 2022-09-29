@@ -1,7 +1,7 @@
 package Classes;
 
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.List;
 import java.util.Scanner;
 
 public abstract class Character {
@@ -16,7 +16,7 @@ public abstract class Character {
     public Character(String name, double hp) {
         this.id = counter++;
         this.name = name;
-        this.hp = hp;
+        setHp(hp);
     }
 
 
@@ -117,7 +117,7 @@ public abstract class Character {
                     // verficar porque si hay dos errores consecutivos el tercero lo salta con lenextInt()....
                     valueStrength = sc.nextInt();
                 }
-                warrior = new Warrior(String.valueOf(nameCharacter), 100, valueStamina, valueStrength);
+                warrior = new Warrior(String.valueOf(nameCharacter), valueStamina, valueStrength);
                 team1.add(warrior);
             } else {
                 System.out.println("wrong number, Choose the kind of character, press 1 for wizard or 2 for warrior");
@@ -138,22 +138,8 @@ public abstract class Character {
 //                return i;
             }
         }
-
-
         this.name = name;
     }
-
-    //public void randomName(){
-      //  String[] name1 = new String[6];
-
-        //Random rnd = new Random();
-
-        //String nombre = name1[rnd.nextInt(name1.length) ];
-    //}
-
-    abstract void position();
-
-    abstract void health();
 
     @Override
     public String toString() {
@@ -162,6 +148,24 @@ public abstract class Character {
                 ", name='" + name + '\'' +
                 ", hp=" + hp +
                 ", isAlive=" + isAlive +
+                ", characters=" + characters +
                 '}';
     }
+
+
+    abstract void position();
+
+    abstract void health();
+
+
+    public String randomPlayer() {
+
+        String[] listPlayers = {"Warrior", "Wizard"};
+        int i = 0;
+        i = (int) (Math.random() * listPlayers.length);
+        return listPlayers[i];
+
+    }
+
+
 }

@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Wizard extends Character implements Attacker {
-    int mana = (int)(Math.random()*(50-10+1)+10);
-    int intelligence = (int)(Math.random()*(50-1+1)+1);;
+    int mana;
+    int intelligence;
     static String[] listNames = {"ingrid", "pol", "Diana", "Mario bros"};
 
     public Wizard( String name, double hp, int mana, int intelligence) {
@@ -18,6 +18,17 @@ public class Wizard extends Character implements Attacker {
 
     public Wizard() {
         super(listNames[(int)(Math.random()* listNames.length)], (int)(Math.random()*10+1) );
+    }
+
+    public void randomWizard(){
+       /* setName(listNames[(int)(Math.random()* listNames.length)]);
+        setHp((int)(Math.random()*(100-50+1)+50));
+        setMana((int)(Math.random()*(50-10+1)+10));
+        setIntelligence((int)(Math.random()*(50-1+1)+1));*/
+        setName("Edgar");
+        setHp(50);
+        setMana(100);
+        setIntelligence(96);
     }
 
     public void fireBall(){
@@ -49,7 +60,8 @@ public class Wizard extends Character implements Attacker {
 
     }
 
-    //GETTERS:
+    //GETTERS & SETTERS:
+
     public int getMana() {
         return mana;
     }

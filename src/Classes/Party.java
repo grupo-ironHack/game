@@ -182,17 +182,18 @@ public class Party {
     }
 
     public int battlePers(ArrayList<Character> team1, ArrayList<Character> team2) {
-        //for(int i = 0; i < team1.size(); i++){
         warrior = new Warrior();
         wizard = new Wizard();
-        if (team1.get(0) == warrior) {
-            System.out.println(team1.get(0).getName());
-            return warrior.typeAttack();
-        }  else {
-            System.out.println(team1.get(0).getName());
-            return wizard.typeAttack();
+        for (int i = 0; i < team1.size(); i++) {
+            if (team1.get(i) == warrior) {
+                System.out.println(team1.get(i).getName());
+                return warrior.typeAttack();
+            } else {
+                System.out.println(team1.get(i+1).getName());
+                return wizard.typeAttack();
+            }
         }
-
+            return wizard.typeAttack();
         // if(team2.get(0) == warrior) {
         //   warrior.typeAttack();
         //}else{

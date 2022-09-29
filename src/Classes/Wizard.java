@@ -40,7 +40,7 @@ public class Wizard extends Character implements Attacker {
     public int hitStick(){
         int stickStrike = 2;
         mana = mana + 1;
-        return hitStick();
+        return stickStrike;
     }
     public int typeAttack() {
         if (mana > 5){

@@ -126,7 +126,7 @@ public class Party {
                 charctersLives2.addAll(createRandomParty());
                 System.out.println("Random case 1 => " + charctersLives1.toString());
                 System.out.println("Random case 2 => " + charctersLives2.toString());
-                battlePers(charctersLives1, charctersLives2);
+                //battlePers(charctersLives1, charctersLives2);
                 break;
             case 3:
                 System.out.println("Exit");
@@ -168,14 +168,14 @@ public class Party {
                 randomTeam.add(warrior);
             }
 
-
         }
-
-        for (int i = 0; i < randomTeam.size(); i++) {
-            for (int j = 1; j < randomTeam.size(); j++) {
-                if (randomTeam.get(i).getName().equals(randomTeam.get(j).getName())) {
-                    randomTeam.get(j).setName(randomTeam.get(j).getName().concat(" Jr"));
-                }
+        List<String> randomTeamCheck = new ArrayList<>();
+        for (Character value : randomTeam) {
+            String nameExist = value.getName();
+            if (!randomTeamCheck.contains(nameExist)) {
+                randomTeamCheck.add(nameExist);
+            } else {
+                value.setName(nameExist.concat(" Jr"));
             }
         }
         return randomTeam;
@@ -189,11 +189,11 @@ public class Party {
                 System.out.println(team1.get(i).getName());
                 return warrior.typeAttack();
             } else {
-                System.out.println(team1.get(i+1).getName());
+                System.out.println(team1.get(i + 1).getName());
                 return wizard.typeAttack();
             }
         }
-            return wizard.typeAttack();
+        return wizard.typeAttack();
         // if(team2.get(0) == warrior) {
         //   warrior.typeAttack();
         //}else{

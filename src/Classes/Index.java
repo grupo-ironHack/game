@@ -1,22 +1,21 @@
 package Classes;
 
-
-
-import java.sql.SQLOutput;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Index extends Character  {
+public class Index {
+
+    private Warrior warrrior;
+    private Wizard wizard;
+
+    private Character character;
     Scanner startIndex = new Scanner(System.in);
 
-    //ARRAY LIST:
-    ArrayList<String> myArrayList = new ArrayList<String>();
 
+    //ARRAY LIST:
+//    ArrayList<String> myArrayList = new ArrayList<String>();
     public int numElements = 3;
     String[] myDataArray = new String[]{"[1] CREATE & PERSONALIZE TEAMS", "[2] START BATTLE", "[0] EXIT" };
-
-
     static String gameName = "RPG GAME";
 
     //VARIABLES PARA HACER FUNCIONAR INDICE (PRUEBAS)
@@ -27,21 +26,20 @@ public class Index extends Character  {
 
     boolean introSelector = false;
 
-    public Index(int id, String name, double hp, boolean isAlive) {
-        super(id, name, hp, isAlive);
-    }
-
     //CONSTRUCTOR CARGAR EL MENU DE ACCIONES EN UN ARRAY:
-
-    public boolean intro(){
+    public boolean intro() {
         System.out.println("[1] Start Game\n[0] Exit");
         System.out.println("Select an option");
 
-        if(startIndex.nextInt() == 1) introSelector = true;
+        if(startIndex.nextInt() == 0)
+            System.out.println("GOOD BYE");
+        else introSelector = true;
 
-        return introSelector;
+       return introSelector;
+
+
+
     }
-
     //MUESTRA LAS DIFERENTES OPCIONES PARA LAS ACCIONES:
     public int options(){
         System.out.println(gameName);
@@ -55,41 +53,9 @@ public class Index extends Character  {
         System.out.println(strOptions);
         System.out.println("Select Action:\n");
 
-
         option = startIndex.nextInt();
 
         return option;
     }
 
-    //EJECUTAR LAS ACCIONES:
-    public String accions(int action){
-
-        switch (action){
-            case 1:
-                chooseYourCharacterTeam1();
-                // Here should call, maybe a second method with a team2 inside.
-                break;
-
-            case 2:
-                isAlive();
-                break;
-
-            case 3:
-                System.out.println("Exit");
-                break;
-
-            default:
-                System.out.println("This action is not allowed, please choose a correct one");
-                break;
-        }
-        return result;
-    }
-    @Override
-    void position() {
-        
-    }
-    @Override
-    void health() {
-
-    }
 }

@@ -12,37 +12,19 @@ public class Warrior extends Character implements Attacker {
     int stamina = (int)(Math.random()*(50-10+1)+10);
     int strength = (int)(Math.random()*10+1);
 
+    static String[] listNames = {"ingrid", "pol", "Diana", "Mario bros"};
 
    //CONSTRUCTORS:
 
-    public Warrior(int id, String name, double hp, boolean isAlive, int stamina, int strength) {
-        super(id, name, hp, isAlive);
+    public Warrior(String name, double hp, int stamina, int strength) {
+        super(name, hp);
         this.stamina = stamina;
         this.strength = strength;
     }
-
-
-    /*public void chooseYourCharacter() {
-        super.chooseYourCharacter();
-        Scanner warrior1 = new Scanner(System.in);
-        System.out.println("Choose a name for the firs warrior:");
-        String userName1 = warrior1.nextLine();
-
-        Scanner warrior2 = new Scanner(System.in);
-        System.out.println("Choose a name for the second warrior:");
-        String userName2 = warrior2.nextLine();
-
-        Scanner warrior3 = new Scanner(System.in);
-        System.out.println("Choose a name for the third warrior:");
-        String userName3 = warrior3.nextLine();
-
-        ArrayList<String> team = new ArrayList<String>();
-
-        team.add(userName1);
-        team.add(userName2);
-        team.add(userName3);
-
-    }*/
+    //Especificar el random del hp
+    public Warrior() {
+        super(listNames[(int)(Math.random()* listNames.length)], (int)(Math.random()*(200-100+1)+100));
+    }
 
     public void hardAttack() {
         int hardAttack = strength;

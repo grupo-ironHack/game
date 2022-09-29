@@ -1,6 +1,13 @@
 package Classes;
 
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
@@ -117,7 +124,7 @@ public class Party {
                 System.out.println("End case 1  " + charctersLives1.toString() + "\n");
                 System.out.println("End case 1  " + charctersLives2.toString() + "\n");
                 battlePers(charctersLives1, charctersLives2);
-//                wizard.chooseYourCharacterTeam1();
+                // wizard.chooseYourCharacterTeam1();
                 // Here should call, maybe a second method with a team2 inside.
                 break;
             case 2:
@@ -129,7 +136,10 @@ public class Party {
                 //battlePers(charctersLives1, charctersLives2);
                 break;
             case 3:
-                System.out.println("Exit");
+                creatingTeamCSV("TeamExportWarriors.csv");
+                //charctersLives1.addAll(creatingTeamFromCsv("TeamExportWarriors.csv"));
+                //System.out.println("Random case 1 => " + charctersLives1.toString());
+                System.out.println("Exit from case 3 fill from CSV");
                 break;
             default:
                 System.out.println("This action is not allowed, please choose a correct one");
@@ -200,6 +210,40 @@ public class Party {
         //  wizard.typeAttack();
     }
 
+    /*---------------------------------FILE CSV EXPORT METHOD--------------------------------------------*/
+    public static void creatingTeamCSV(String fileName) {
+        ArrayList<Character> teamNewCsv = new ArrayList<>();
+        BufferedReader reader = null;
+        String line = "";
+        try {
+            reader = new BufferedReader(new FileReader(fileName));
+            while ((line = reader.readLine()) != null) {
+                String[] attributes = line.split(",");
+                for (String index : attributes) {
+                    System.out.printf(index);
+                    //teamNewCsv.add(createParty(attributes));
+                    //Character team = createParty(attributes);
+                }
+                //System.out.println("-----");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private static Character createParty(String[] metadata) {
+        //ID OJO
+        Wizard wizard = new Wizard();
+        String name = metadata[0];
+        String hp = (metadata[0]);
+        int mana = Integer.parseInt(metadata[0]);
+        int intelligence = Integer.parseInt(metadata[1]);
+        // create and return book of this metadata
+        return new Wizard(mana, intelligence);
+    }
+
+
 }
+
+
 
 

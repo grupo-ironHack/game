@@ -2,9 +2,10 @@ import Classes.Index;
 import Classes.Party;
 import Classes.Wizard;
 
+import java.io.File;
+
 public class Main {
     public static void main(String[] args) {
-
 
         Index Steps = new Index();
         Party partyStep = new Party();

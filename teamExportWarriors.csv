@@ -1,0 +1,7 @@
+Warrior{
+id: 1, name:'Ethan', hp=101.0, strength=5, stamina=50, isAlive=true}
+Warrior{
+id: 2, name:'Gunther',hp=145.0, strength=10, stamina=15, isAlive=true}
+Warrior{
+id: 3, name:'Kane', hp=200.0, strength=8, stamina=45, isAlive=true}
+

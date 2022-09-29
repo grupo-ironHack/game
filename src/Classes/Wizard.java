@@ -16,6 +16,11 @@ public class Wizard extends Character implements Attacker {
         setIntelligence(intelligence);
     }
 
+    public Wizard(int mana, int intelligence) {
+        this.mana = mana;
+        this.intelligence = intelligence;
+    }
+
     public Wizard() {
         super(listNames[(int)(Math.random()* listNames.length)], (int)(Math.random()*10+1) );
     }
@@ -84,10 +89,6 @@ public class Wizard extends Character implements Attacker {
         return "Wizard{" +
                 "mana=" + mana +
                 ", intelligence=" + intelligence +
-                ", id=" + id +
-                ", name='" + name + '\'' +
-                ", hp=" + hp +
-                ", isAlive=" + isAlive +
                 '}';
     }
 }

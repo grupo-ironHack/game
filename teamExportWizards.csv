@@ -1,0 +1,7 @@
+Wizard{
+id: 1, name:'Ethan', hp=101.0, mana=45, intelligence=34, isAlive=true}
+Wizard{
+id: 2, name:'Gunther',hp=145.0, mana=34, intelligence=50, isAlive=true}
+Wizard{
+id: 3, name:'Kane', hp=200.0, mana=29, intelligence=48, isAlive=true}
+

@@ -11,11 +11,11 @@ public class Party {
     private ArrayList<Character> charctersDead;
     private ArrayList<Character> character;
     private final String[] CHARACTERS_NAMES = {
-            "Pol", "Charles", "Marina", "Dario", "Axel", "Diana", "Avishai", "Ingrid", "Carles", "Jaume", "Alejandro",
-            "Pedro", "Leonardo", "Gandalaf", "Merlin", "Saruman", "Dumbledore", "Harry Potter", "Prospero", "Pikachu",
-            "Miro", "Picasso", "Rachmaninoff", "Mozart", "John Lenon", "Paul", "Ringo", "Gary", "Benito Camela",
-            "Armando Casas", "Elsa Capunta", "Elba Lazo", "Elba Calao", "Zacarias Flores Del Campo",
-            "Marcia Ana", "Alan Brito Delgado", "Elsa Pito", "Susana Oria", "Elsa Pato", "Aquiles Bailo"
+            "Pol", "Charles", "Marina","Dario", //"Axel", "Diana", "Avishai", "Ingrid", "Carles", "Jaume", "Alejandro",
+            //"Pedro", "Leonardo", "Gandalaf", "Merlin", "Saruman", "Dumbledore", "Harry Potter", "Prospero", "Pikachu",
+            //"Miro", "Picasso", "Rachmaninoff", "Mozart", "John Lenon", "Paul", "Ringo", "Gary", "Benito Camela",
+            //"Armando Casas", "Elsa Capunta", "Elba Lazo", "Elba Calao", "Zacarias Flores Del Campo",
+            //"Marcia Ana", "Alan Brito Delgado", "Elsa Pito", "Susana Oria", "Elsa Pato", "Aquiles Bailo"
     };
     private Warrior warriorRandom;
     private Wizard wizardRandom;
@@ -34,6 +34,7 @@ public class Party {
         setWarriorRandom(warriorRandom);
         setWizardRandom(wizardRandom);
     }
+
 
     public ArrayList<Character> getCharctersLives() {
         return charctersLives1;
@@ -101,9 +102,7 @@ public class Party {
         if (team1Random == warriorRandom) {
             warriorRandom.randomWarrior();
         }
-
         return team1Random;
-
     }
 
 
@@ -125,6 +124,8 @@ public class Party {
                 charctersLives2.addAll(createRandomParty());
                 System.out.println("Random case 1 => " + charctersLives1.toString());
                 System.out.println("Random case 2 => " + charctersLives2.toString());
+                Battle battle = new Battle();
+                battle.figth();
                 break;
             case 3:
                 System.out.println("Exit");
@@ -169,9 +170,29 @@ public class Party {
        /* System.out.println(randomTeam.get(0));
         System.out.println(randomTeam.get(1));
         System.out.println(randomTeam.get(2));*/
+
+        for (int i = 0; i < randomTeam.size(); i++) {
+            for (int j = 1; j <  randomTeam.size(); j++) {
+                if (randomTeam.get(i).getName().equals(randomTeam.get(j).getName())) {
+                    randomTeam.get(j).setName(randomTeam.get(j).getName().concat(" Jr"));
+                }
+            }
+        }
         return randomTeam;
     }
 
+
+    private static List<Character> generateTeam() {
+        List<Character> characters = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            if (Math.round(Math.random()) == 0) {
+                characters.add(new Wizard());
+            } else {
+                characters.add(new Warrior());
+            }
+        }
+        return characters;
+    }
 
 }
 

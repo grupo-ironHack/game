@@ -10,8 +10,13 @@ public class Battle {
         this.party2 = party2;
     }
 
+    public Battle() {
+    }
+
+    Party party = new Party();
     public void figth(){
-        party1.getClass();
+
+
 
     }
 }

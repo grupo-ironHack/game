@@ -19,7 +19,6 @@ public abstract class Character {
         setHp(hp);
     }
 
-
     public Character() {
         this.characters = new ArrayList<Character>();
     }
@@ -37,6 +36,8 @@ public abstract class Character {
         return name;
     }
 
+    public void setName(String name){this.name = name;}
+
     public double getHp() {
         return hp;
     }
@@ -51,6 +52,10 @@ public abstract class Character {
 
     public void setAlive(boolean alive) {
         isAlive = alive;
+    }
+
+    public void setCharacters(ArrayList<Character> characters) {
+        this.characters = characters;
     }
 
     // REVISAR ESTE SETTER
@@ -131,15 +136,15 @@ public abstract class Character {
         return team1;
     }
 
-    public void setName(String name) {
+   /* public void setName(String name) {
         String[] teamArr = name.split(" ");
         for (Character i : characters) {
             if (name.equals(i.getName())) {
-//                return i;
+                this.name = name;
             }
         }
         this.name = name;
-    }
+    }*/
 
     @Override
     public String toString() {

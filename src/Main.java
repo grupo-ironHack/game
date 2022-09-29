@@ -1,15 +1,17 @@
 import Classes.Index;
 import Classes.Party;
-
-import java.util.Random;
+import Classes.Wizard;
 
 public class Main {
     public static void main(String[] args) {
+        Wizard wizard = new Wizard();
+        wizard.randomWizard();
+        System.out.println(wizard);
 
         Index Steps = new Index();
         Party partyStep = new Party();
 
-        //STEP 1: ACCION A REALIZAR:
+        //STEP 1: INICIAR JUEGO:
         boolean step1 = Steps.intro();
         int step2;
         boolean repeat = true;
@@ -20,7 +22,7 @@ public class Main {
             String resultActions = partyStep.accions(step2);
 
             //MIENTRAS SU VALOR SEA VERDADERO:
-            while (repeat)
+            while (repeat) {
 
                 if (Steps.hp > 0) {
 //                    String resultActions = Steps.accions(step2);
@@ -28,7 +30,7 @@ public class Main {
 
                     //SI EXISTE LA ACCION AÑADIMOS LA ACCION SELECCIONADA:
                     if (step2 > 0 && step2 < (Steps.numElements)) {
-                        resultActions = "ACTION [" + step1 + "]:\n\t" + resultActions;
+                        resultActions = "ACTION [" + step2 + "]:\n\t" + resultActions;
                     }
 
                     //MOSTRAMOS RESULTADO DE LA ACCION SELECCIONADA:
@@ -41,8 +43,7 @@ public class Main {
             }
         }
 
-
-
-
     }
 
+
+}

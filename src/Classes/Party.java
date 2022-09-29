@@ -1,5 +1,7 @@
 package Classes;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Party {
     private ArrayList<Character> charctersLives1 = new ArrayList<>();
@@ -7,34 +9,14 @@ public class Party {
     private ArrayList<Character> charctersDead;
     private ArrayList<Character> character;
 
-    private Warrior warrior1 ;
-
-    private static String[] listNames = {"ingrid", "pol", "Diana", "Mario bros"};
-
+    private Warrior warriorRandom;
+    private Wizard wizardRandom;
     public Party() {}
 //    OJO con el constructor y los getters y setter
-    public Party(ArrayList<Character> charctersLives, ArrayList<Character> charctersDead, ArrayList<Character> character, Warrior warrior1) {
+    public Party(ArrayList<Character> charctersLives, ArrayList<Character> charctersDead, ArrayList<Character> character) {
         setCharacter(charctersLives);
         this.charctersDead = charctersDead;
         this.character = character;
-        this.warrior1 = warrior1;
-    }
-
-    public Warrior getWarrior1() {
-
-        return warrior1;
-    }
-
-    public void setWarrior1(Warrior warrior1) {
-        this.warrior1 = warrior1;
-    }
-
-    public String[] getListNames() {
-        return listNames;
-    }
-
-    public void setListNames(String[] listNames) {
-        this.listNames = listNames;
     }
 
     public ArrayList<Character> getCharctersLives() {
@@ -67,6 +49,33 @@ public class Party {
         charctersDead.add(charctersLives1.remove(0));
     }
 
+    public List<Character> superRandom(){
+        List<Character> team1Random = new ArrayList<>();
+
+            team1Random.add(wizardRandom);
+            team1Random.add(warriorRandom);
+            Wizard  wizardR1;
+            int i = 0;
+            i = (int)(Math.random()*team1Random.size());
+              team1Random.get(i);
+
+              Wizard wizardRandom = new Wizard();
+
+              if (team1Random == wizardRandom){
+
+                  wizardRandom.randomWizard();
+
+
+              } if (team1Random == warriorRandom){
+                  warriorRandom.randomWarrior();
+            }
+
+        return team1Random;
+
+
+
+    }
+
 
 
     public String accions(int action){
@@ -80,7 +89,10 @@ public class Party {
                 // Here should call, maybe a second method with a team2 inside.
                 break;
             case 2:
-                //isAlive();
+
+                superRandom();
+
+
                 break;
             case 3:
                 System.out.println("Exit");
@@ -91,25 +103,6 @@ public class Party {
         }
         return "hola";
     }
-// MÉTODO RANDOM NAME
-    public static String randomName(){
-        int i =0;
-        i = (int) (Math.random()*(5));
-        return listNames[i];
-    }
-// VOLVER A REPASAR EL MÉTODO
-    public static void addName(){
-        String names = randomName();
-        boolean foundIt = false;
-        for(int i = 0; i < listNames.length; i++){
-            if (names.equals(listNames[i]))
-            foundIt = true;
-        }
-
-        if(foundIt == true)
-            names = "jr " + names;
-
-        System.out.println(names);
-    }
 
 }
+

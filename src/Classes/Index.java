@@ -27,19 +27,20 @@ public class Index {
     boolean introSelector = false;
 
     //CONSTRUCTOR CARGAR EL MENU DE ACCIONES EN UN ARRAY:
-    public boolean intro() {
+    public boolean intro(){
         System.out.println("[1] Start Game\n[0] Exit");
         System.out.println("Select an option");
 
-        if(startIndex.nextInt() == 0)
-            System.out.println("GOOD BYE");
-        else introSelector = true;
+        if(startIndex.nextInt() == 1) {
+            introSelector = true;
+        } else {
+            System.out.println("Good Bye");
+            introSelector = false;
+        }
 
-       return introSelector;
-
-
-
+        return introSelector;
     }
+
     //MUESTRA LAS DIFERENTES OPCIONES PARA LAS ACCIONES:
     public int options(){
         System.out.println(gameName);
@@ -58,4 +59,38 @@ public class Index {
         return option;
     }
 
+    //EJECUTAR LAS ACCIONES:
+    /*public String accions(int action){
+
+        switch (action){
+            case 1:
+                Character.chooseYourCharacterTeam1();
+//                wizard.chooseYourCharacterTeam1();
+                // Here should call, maybe a second method with a team2 inside.
+                break;
+
+            case 2:
+                wizard.isAlive();
+                break;
+
+            case 3:
+                System.out.println("Exit");
+                break;
+
+            default:
+                System.out.println("This action is not allowed, please choose a correct one");
+                break;
+        }
+        return result;
+    }
+
+    */
+  /*  @Override
+    void position() {
+        
+    }
+    @Override
+    void health() {
+
+    }*/
 }

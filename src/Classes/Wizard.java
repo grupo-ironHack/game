@@ -21,32 +21,36 @@ public class Wizard extends Character implements Attacker {
     }
 
     public void randomWizard(){
-        setName(listNames[(int)(Math.random()* listNames.length)]);
+       /* setName(listNames[(int)(Math.random()* listNames.length)]);
         setHp((int)(Math.random()*(100-50+1)+50));
         setMana((int)(Math.random()*(50-10+1)+10));
-        setIntelligence((int)(Math.random()*(50-1+1)+1));
-
+        setIntelligence((int)(Math.random()*(50-1+1)+1));*/
+        setName("Edgar");
+        setHp(50);
+        setMana(100);
+        setIntelligence(96);
     }
 
-    public void fireBall(){
+    public int fireBall(){
         int fireBall = intelligence;
         mana = mana - 5;
+        return fireBall;
     }
 
-    public void hitStick(){
+    public int hitStick(){
         int stickStrike = 2;
         mana = mana + 1;
+        return hitStick();
     }
-    public void typeAttack() {
+    public int typeAttack() {
         if (mana > 5){
-            fireBall();
+            return fireBall();
         } else {
-            hitStick();
+             return hitStick();
         }
-    }
-    public void returnTeam() {
 
     }
+
     public void goingCementery() {
 
     }

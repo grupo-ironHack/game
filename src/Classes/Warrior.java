@@ -22,6 +22,13 @@ public class Warrior extends Character implements Attacker {
         getStamina();
         this.strength = strength;
     }
+
+    public Warrior(String name, double hp, int stamina, int strength) {
+        super(name, hp);
+        this.stamina = stamina;
+        this.strength = strength;
+    }
+
     //Especificar el random del hp
     public Warrior() {
         super(listNames[(int)(Math.random()* listNames.length)], (int)(Math.random()*10+1));
@@ -32,8 +39,6 @@ public class Warrior extends Character implements Attacker {
         setHp((int)(Math.random()*(200-100+1)+100));
         setStamina((int)(Math.random()*(50-10+1)+10));
         setStamina((int)(Math.random()*10+1));
-
-
     }
 
     /*public void chooseYourCharacter() {
@@ -58,31 +63,29 @@ public class Warrior extends Character implements Attacker {
 
     }*/
 
-    public void hardAttack() {
+    public int hardAttack() {
         int hardAttack = strength;
         stamina = stamina - 5;
+        // damage ==  strength
+    return hardAttack;}
 
-    }
-
-    public void softAttack(){
+    public int softAttack(){
         BigDecimal softAttack = (BigDecimal.valueOf(strength / 2).setScale(2, RoundingMode.DOWN));
                 strength = strength + 1;
-    }
+                //Big Decimal damage = strength / 2
+    return softAttack();}
 
 
 
-    public void typeAttack() {
+    public int typeAttack() {
         if(stamina > 5){
-            hardAttack();
+            return hardAttack();
         } else  {
-            softAttack();
+            return softAttack();
         }
 
     }
 
-    public void returnTeam() {
-
-    }
 
 
     public void goingCementery() {

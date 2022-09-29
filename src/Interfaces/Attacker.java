@@ -1,7 +1,6 @@
 package Interfaces;
 
 public interface Attacker {
-    void typeAttack();
-    void returnTeam();
+    int typeAttack();
     void goingCementery();
 }

@@ -16,7 +16,7 @@ public abstract class Character {
     public Character(String name, double hp) {
         this.id = counter++;
         this.name = name;
-        this.hp = hp;
+        setHp(hp);
     }
 
 
@@ -96,6 +96,7 @@ public abstract class Character {
                     valueIntelligence = sc.nextInt();
                 }
 
+
                 wizard = new Wizard(String.valueOf(name1), 100, valueMana, valueIntelligence);
                 team1.add(wizard);
                 wizard.toString();
@@ -138,8 +139,6 @@ public abstract class Character {
 //                return i;
             }
         }
-
-
         this.name = name;
     }
 
@@ -154,18 +153,18 @@ public abstract class Character {
                 '}';
     }
 
+
     abstract void position();
 
     abstract void health();
 
 
+    public String randomPlayer() {
 
-    public String randomPlayer(){
-
-         String[] listPlayers =  {"Warrior", "Wizard"};
-         int i = 0;
-         i = (int)(Math.random()* listPlayers.length);
-         return listPlayers[i];
+        String[] listPlayers = {"Warrior", "Wizard"};
+        int i = 0;
+        i = (int) (Math.random() * listPlayers.length);
+        return listPlayers[i];
 
     }
 }

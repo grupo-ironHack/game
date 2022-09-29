@@ -15,7 +15,7 @@ public class Index {
     //ARRAY LIST:
 //    ArrayList<String> myArrayList = new ArrayList<String>();
     public int numElements = 3;
-    String[] myDataArray = new String[]{"[1] CREATE & PERSONALIZE TEAMS", "[2] START BATTLE", "[0] EXIT" };
+    String[] myDataArray = new String[]{"[1] CREATE & PERSONALIZE TEAMS", "[2] CREATE RANDOM TEAMS", "[0] EXIT" };
     static String gameName = "RPG GAME";
 
     //VARIABLES PARA HACER FUNCIONAR INDICE (PRUEBAS)

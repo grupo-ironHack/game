@@ -11,14 +11,14 @@ public class Party {
     private ArrayList<Character> charctersDead;
     private ArrayList<Character> character;
     private final String[] CHARACTERS_NAMES = {
-            "Pol", "Charles", "Marina","Dario", //"Axel", "Diana", "Avishai", "Ingrid", "Carles", "Jaume", "Alejandro",
-            //"Pedro", "Leonardo", "Gandalaf", "Merlin", "Saruman", "Dumbledore", "Harry Potter", "Prospero", "Pikachu",
-            //"Miro", "Picasso", "Rachmaninoff", "Mozart", "John Lenon", "Paul", "Ringo", "Gary", "Benito Camela",
-            //"Armando Casas", "Elsa Capunta", "Elba Lazo", "Elba Calao", "Zacarias Flores Del Campo",
-            //"Marcia Ana", "Alan Brito Delgado", "Elsa Pito", "Susana Oria", "Elsa Pato", "Aquiles Bailo"
+            "Pol", "Charles", "Marina", "Dario", "Axel", "Diana", "Avishai", "Ingrid", "Carles", "Jaume", "Alejandro",
+            "Pedro", "Leonardo", "Gandalaf", "Merlin", "Saruman", "Dumbledore", "Harry Potter", "Prospero", "Pikachu",
+            "Miro", "Picasso", "Rachmaninoff", "Mozart", "John Lenon", "Paul", "Ringo", "Gary", "Benito Camela",
+            "Armando Casas", "Elsa Capunta", "Elba Lazo", "Elba Calao", "Zacarias Flores Del Campo",
+            "Marcia Ana", "Alan Brito Delgado", "Elsa Pito", "Susana Oria", "Elsa Pato", "Aquiles Bailo"
     };
-    private Warrior warriorRandom;
-    private Wizard wizardRandom;
+    private Warrior warrior;
+    private Wizard wizard;
 
     public Party() {
     }
@@ -30,11 +30,10 @@ public class Party {
         this.character = character;
     }
 
-    public Party(Warrior warriorRandom, Wizard wizardRandom) {
-        setWarriorRandom(warriorRandom);
-        setWizardRandom(wizardRandom);
+    public Party(Warrior warrior, Wizard wizard) {
+        this.warrior = warrior;
+        this.wizard = wizard;
     }
-
 
     public ArrayList<Character> getCharctersLives() {
         return charctersLives1;
@@ -61,20 +60,20 @@ public class Party {
     }
 
     public Warrior getWarriorRandom() {
-        return warriorRandom;
+        return warrior;
     }
 
     public void setWarriorRandom(Warrior warriorRandom) {
-        this.warriorRandom = warriorRandom;
+        this.warrior = warriorRandom;
     }
 
     public Wizard getWizardRandom() {
-        return wizardRandom;
+        return wizard;
     }
 
-    public void setWizardRandom(Wizard wizardRandom) {
-        this.wizardRandom = wizardRandom;
-    }
+    //public void setWizardRandom(Wizard wizard) {
+    //  this.wizard = wizard;}
+
 
     /*  ------ METODOS EXTRA -----*/
     public void killCharacter() {
@@ -87,8 +86,8 @@ public class Party {
 
         //wizardRandom = new Wizard();
 
-        team1Random.add(wizardRandom);
-        team1Random.add(warriorRandom);
+        team1Random.add(wizard);
+        team1Random.add(warrior);
         Wizard wizardR1;
 
         int i = 0;
@@ -99,10 +98,12 @@ public class Party {
         if (team1Random == wizardRandom) {
             wizardRandom.randomWizard();
         }
-        if (team1Random == warriorRandom) {
-            warriorRandom.randomWarrior();
+        if (team1Random == warrior) {
+            warrior.randomWarrior();
         }
+
         return team1Random;
+
     }
 
 
@@ -115,6 +116,7 @@ public class Party {
                 charctersLives2.addAll(Character.chooseYourCharacterTeam1());
                 System.out.println("End case 1  " + charctersLives1.toString() + "\n");
                 System.out.println("End case 1  " + charctersLives2.toString() + "\n");
+                battlePers(charctersLives1, charctersLives2);
 //                wizard.chooseYourCharacterTeam1();
                 // Here should call, maybe a second method with a team2 inside.
                 break;
@@ -124,8 +126,7 @@ public class Party {
                 charctersLives2.addAll(createRandomParty());
                 System.out.println("Random case 1 => " + charctersLives1.toString());
                 System.out.println("Random case 2 => " + charctersLives2.toString());
-                Battle battle = new Battle();
-                battle.figth();
+                battlePers(charctersLives1, charctersLives2);
                 break;
             case 3:
                 System.out.println("Exit");
@@ -166,13 +167,12 @@ public class Party {
                 warrior = new Warrior(CHARACTERS_NAMES[numToRandomName], hp, stamina, strength);
                 randomTeam.add(warrior);
             }
+
+
         }
-       /* System.out.println(randomTeam.get(0));
-        System.out.println(randomTeam.get(1));
-        System.out.println(randomTeam.get(2));*/
 
         for (int i = 0; i < randomTeam.size(); i++) {
-            for (int j = 1; j <  randomTeam.size(); j++) {
+            for (int j = 1; j < randomTeam.size(); j++) {
                 if (randomTeam.get(i).getName().equals(randomTeam.get(j).getName())) {
                     randomTeam.get(j).setName(randomTeam.get(j).getName().concat(" Jr"));
                 }
@@ -181,18 +181,24 @@ public class Party {
         return randomTeam;
     }
 
-
-    private static List<Character> generateTeam() {
-        List<Character> characters = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            if (Math.round(Math.random()) == 0) {
-                characters.add(new Wizard());
-            } else {
-                characters.add(new Warrior());
-            }
+    public int battlePers(ArrayList<Character> team1, ArrayList<Character> team2) {
+        //for(int i = 0; i < team1.size(); i++){
+        warrior = new Warrior();
+        wizard = new Wizard();
+        if (team1.get(0) == warrior) {
+            System.out.println(team1.get(0).getName());
+            return warrior.typeAttack();
+        }  else {
+            System.out.println(team1.get(0).getName());
+            return wizard.typeAttack();
         }
-        return characters;
+
+        // if(team2.get(0) == warrior) {
+        //   warrior.typeAttack();
+        //}else{
+        //  wizard.typeAttack();
     }
 
 }
+
 

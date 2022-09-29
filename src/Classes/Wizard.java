@@ -31,25 +31,26 @@ public class Wizard extends Character implements Attacker {
         setIntelligence(96);*/
     }
 
-    public void fireBall(){
+    public int fireBall(){
         int fireBall = intelligence;
         mana = mana - 5;
+        return fireBall;
     }
 
-    public void hitStick(){
+    public int hitStick(){
         int stickStrike = 2;
         mana = mana + 1;
+        return hitStick();
     }
-    public void typeAttack() {
+    public int typeAttack() {
         if (mana > 5){
-            fireBall();
+            return fireBall();
         } else {
-            hitStick();
+             return hitStick();
         }
-    }
-    public void returnTeam() {
 
     }
+
     public void goingCementery() {
 
     }

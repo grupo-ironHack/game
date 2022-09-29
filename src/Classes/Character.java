@@ -101,6 +101,7 @@ public abstract class Character {
                     valueIntelligence = sc.nextInt();
                 }
 
+
                 wizard = new Wizard(String.valueOf(name1), 100, valueMana, valueIntelligence);
                 team1.add(wizard);
                 wizard.toString();
@@ -171,6 +172,4 @@ public abstract class Character {
         return listPlayers[i];
 
     }
-
-
 }

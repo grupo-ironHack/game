@@ -117,6 +117,8 @@ public class Party {
                 System.out.println("End case 1  " + charctersLives1.toString() + "\n");
                 System.out.println("End case 1  " + charctersLives2.toString() + "\n");
                 battlePers(charctersLives1, charctersLives2);
+
+
 //                wizard.chooseYourCharacterTeam1();
                 // Here should call, maybe a second method with a team2 inside.
                 break;
@@ -127,6 +129,7 @@ public class Party {
                 System.out.println("Random case 1 => " + charctersLives1.toString());
                 System.out.println("Random case 2 => " + charctersLives2.toString());
                 battlePers(charctersLives1, charctersLives2);
+
                 break;
             case 3:
                 System.out.println("Exit");
@@ -181,25 +184,38 @@ public class Party {
         return randomTeam;
     }
 
-    public int battlePers(ArrayList<Character> team1, ArrayList<Character> team2) {
+    public int battlePers(List<Character> team1, List<Character> team2) {
         warrior = new Warrior();
         wizard = new Wizard();
         for (int i = 0; i < team1.size(); i++) {
             if (team1.get(i) == warrior) {
                 System.out.println(team1.get(i).getName());
+                System.out.println(team2.get(i).getHp() - warrior.typeAttack());
                 return warrior.typeAttack();
             } else {
-                System.out.println(team1.get(i+1).getName());
+                System.out.println(team1.get(i + 1).getName());
+                System.out.println(team2.get(i).getHp() - wizard.typeAttack());
                 return wizard.typeAttack();
             }
         }
-            return wizard.typeAttack();
-        // if(team2.get(0) == warrior) {
-        //   warrior.typeAttack();
-        //}else{
-        //  wizard.typeAttack();
-    }
+        for (int j = 0; j < team2.size(); j++) {
 
+            if (team2.get(0) == warrior) {
+                System.out.println(team2.get(j).getName());
+                System.out.println(team1.get(j).getHp() - warrior.typeAttack());
+                return warrior.typeAttack();
+            } else {
+                System.out.println(team1.get(j + 1).getName());
+                System.out.println(team2.get(j).getHp() - wizard.typeAttack());
+                return wizard.typeAttack();
+            }
+
+        }
+        return 1;
+    }
 }
+
+
+
 
 

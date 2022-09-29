@@ -1,10 +1,15 @@
 import Classes.Index;
 import Classes.Party;
+import Classes.Warrior;
 import Classes.Wizard;
+
+import java.sql.SQLOutput;
 
 public class Main {
     public static void main(String[] args) {
 
+        Warrior war = new Warrior("Pol", 100, 2, 50);
+        System.out.println(war.getStamina());
 
         Index Steps = new Index();
         Party partyStep = new Party();

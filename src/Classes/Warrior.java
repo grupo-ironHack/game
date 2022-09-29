@@ -63,24 +63,33 @@ public class Warrior extends Character implements Attacker {
 
     }*/
 
-    public int hardAttack() {
+    public int  hardAttack() {
         int hardAttack = strength;
         stamina = stamina - 5;
-        // damage ==  strength
-    return hardAttack;}
+        System.out.println("The damage of this atttack is: ");
+        System.out.println(hardAttack);
+        return hardAttack;
+
+    }
 
     public int softAttack(){
-        BigDecimal softAttack = (BigDecimal.valueOf(strength / 2).setScale(2, RoundingMode.DOWN));
-                strength = strength + 1;
+        int softAttack2 = strength / 2;
+        //int softAttack2 = (BigDecimal.valueOf(strength / 2).setScale(2, RoundingMode.DOWN));
+        strength = strength + 1;
                 //Big Decimal damage = strength / 2
-    return softAttack();}
+        System.out.println("The damage of this atttack is: ");
+        System.out.println(softAttack2);
+        return softAttack2;
+    }
 
 
 
     public int typeAttack() {
         if(stamina > 5){
+            hp = hp - hardAttack();
             return hardAttack();
         } else  {
+            hp = hp - softAttack();
             return softAttack();
         }
 

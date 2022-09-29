@@ -34,12 +34,16 @@ public class Wizard extends Character implements Attacker {
     public int fireBall(){
         int fireBall = intelligence;
         mana = mana - 5;
+        System.out.println("The damage of this atttack is: ");
+        System.out.println(fireBall);
         return fireBall;
     }
 
     public int hitStick(){
         int stickStrike = 2;
         mana = mana + 1;
+        System.out.println("The damage of this atttack is: ");
+        System.out.println(stickStrike);
         return stickStrike;
     }
     public int typeAttack() {

@@ -39,7 +39,8 @@ public abstract class Character {
     public void setName(String name){this.name = name;}
 
     public double getHp() {
-        return hp;
+        System.out.println("My actual Health is: ");
+       return hp;
     }
 
     public void setHp(double hp) {
@@ -123,7 +124,7 @@ public abstract class Character {
                     // verficar porque si hay dos errores consecutivos el tercero lo salta con lenextInt()....
                     valueStrength = sc.nextInt();
                 }
-                warrior = new Warrior(String.valueOf(nameCharacter), valueStamina, valueStrength);
+                warrior = new Warrior(String.valueOf(nameCharacter), 100, valueStamina, valueStrength);
                 team1.add(warrior);
             } else {
                 System.out.println("wrong number, Choose the kind of character, press 1 for wizard or 2 for warrior");

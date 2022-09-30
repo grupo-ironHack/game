@@ -71,9 +71,6 @@ public class Party {
         return wizard;
     }
 
-    //public void setWizardRandom(Wizard wizard) {
-    //  this.wizard = wizard;}
-
 
     /*  ------ METODOS EXTRA -----*/
     public void killCharacter() {
@@ -103,9 +100,7 @@ public class Party {
         }
 
         return team1Random;
-
     }
-
 
     public String accions(int action) {
         switch (action) {
@@ -138,7 +133,7 @@ public class Party {
                 System.out.println("This action is not allowed, please choose a correct one");
                 break;
         }
-        return "hola";
+        return "";
     }
 
 
@@ -184,66 +179,58 @@ public class Party {
         return randomTeam;
     }
 
-    public int battlePers(List<Character> team1, List<Character> team2) {
-        //warrior = new Warrior();
-        //wizard = new Wizard();
-        while(team1.size() >0 && team2.size() > 0){
+    public void  battlePers(List<Character> team1, List<Character> team2) {
+        while (team1.size() > 0 && team2.size() > 0) {
             Character character1 = team1.get(0);
             Character character2 = team2.get(0);
-            Character fighter1 = null;
-            Character fighter2 = null;
+
+            while (character1.isAlive() && character2.isAlive()) {
+                character1.setHp(character1.getHp() - character2.typeAttack());
+                System.out.println(character2.getName() + " dealt " + character2.typeAttack() + " points of damage to " + character1.getName());
+
+                character2.setHp(character2.getHp() - character1.typeAttack());
+                System.out.println(character1.getName() + " dealt " + character1.typeAttack() + " points of damage to " + character2.getName());
+
+                if (character1.getHp() <= 0) {
+                    character1.setAlive(false);
+                    System.out.println(character1.getName() + " is dead!!");
+                    team1.remove(character1);
+                    System.out.println("============================");
+                    System.out.println("============================");
+
+                }
+                if (character2.getHp() <= 0) {
+                    character2.setAlive(false);
+                    System.out.println(character2.getName() + " is dead!!!");
+                    team2.remove(character2);
+                    System.out.println("============================");
+                    System.out.println("============================");
+
+                }
 
 
-            if(character1 instanceof Warrior){
-                fighter1 = (Warrior) character1;
-            }else{
-                Wizard fighter1 = (Wizard) character1;
             }
 
-            if(character2 instanceof Warrior){
-                Warrior fighter2 = (Warrior) character2;
-            }else{
-                Wizard fighter2 = (Wizard) character2;
-            }
 
-            while (fighter1.isAlive() && fighter2.isAlive()){
-                fighter1.setHp(fighter1.getHp() - fighter2.);
-            }
         }
 
-
-
-
-        if()
-        int damage = 0;
-        for (int i = 0; i < team1.size(); i++) {
-            if (team1.get(i) == warrior) {
-                System.out.println(team1.get(i).getName());
-                System.out.println(team2.get(i).getHp() - warrior.typeAttack());
-                return warrior.typeAttack();
-            } else {
-                System.out.println(team1.get(i + 1).getName());
-                System.out.println(team2.get(i).getHp() - wizard.typeAttack());
-                return wizard.typeAttack();
-            }
-        }damage = warrior.typeAttack();
-        for (int j = 0; j < team2.size(); j++) {
-
-            if (team2.get(0) == warrior) {
-                System.out.println(team2.get(j).getName());
-                System.out.println(team1.get(j).getHp() - warrior.typeAttack());
-                return warrior.typeAttack();
-            } else {
-                System.out.println(team1.get(j + 1).getName());
-                System.out.println(team2.get(j).getHp() - wizard.typeAttack());
-                return wizard.typeAttack();
-            }
-
-        }return  wizard.typeAttack();
-
+        if (team1.size() > 0) {
+            System.out.println("****************************");
+            System.out.println("****************************");
+            System.out.println("Team 1 won!!!");
+            System.out.println("****************************");
+            System.out.println("****************************");
+        } else {
+            System.out.println("****************************");
+            System.out.println("****************************");
+            System.out.println("Team 2 won!!!");
+            System.out.println("****************************");
+            System.out.println("****************************");
+        }
 
     }
 }
+
 
 
 

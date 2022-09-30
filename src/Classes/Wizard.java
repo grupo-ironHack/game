@@ -25,10 +25,7 @@ public class Wizard extends Character implements Attacker {
         setHp((int)(Math.random()*(100-50+1)+50));
         setMana((int)(Math.random()*(50-10+1)+10));
         setIntelligence((int)(Math.random()*(50-1+1)+1));
-     /*   setName("Edgar");
-        setHp(50);
-        setMana(100);
-        setIntelligence(96);*/
+
     }
 
     public int fireBall(){

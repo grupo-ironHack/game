@@ -14,12 +14,5 @@ public class Battle {
 
     public void figth(){
 
-
-
-
-
-
-        // Object obj = new String("JavaTpoint");
-        //        Class a = obj.getClass();
     }
 }

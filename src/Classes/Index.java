@@ -59,38 +59,4 @@ public class Index {
         return option;
     }
 
-    //EJECUTAR LAS ACCIONES:
-    /*public String accions(int action){
-
-        switch (action){
-            case 1:
-                Character.chooseYourCharacterTeam1();
-//                wizard.chooseYourCharacterTeam1();
-                // Here should call, maybe a second method with a team2 inside.
-                break;
-
-            case 2:
-                wizard.isAlive();
-                break;
-
-            case 3:
-                System.out.println("Exit");
-                break;
-
-            default:
-                System.out.println("This action is not allowed, please choose a correct one");
-                break;
-        }
-        return result;
-    }
-
-    */
-  /*  @Override
-    void position() {
-        
-    }
-    @Override
-    void health() {
-
-    }*/
 }

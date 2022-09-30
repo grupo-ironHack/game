@@ -1,10 +1,12 @@
 package Classes;
 
+import Interfaces.Attacker;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public abstract class Character {
+public abstract class Character implements Attacker {
     static int counter = 0;
     int id;
     String name;
@@ -137,15 +139,6 @@ public abstract class Character {
         return team1;
     }
 
-   /* public void setName(String name) {
-        String[] teamArr = name.split(" ");
-        for (Character i : characters) {
-            if (name.equals(i.getName())) {
-                this.name = name;
-            }
-        }
-        this.name = name;
-    }*/
 
     @Override
     public String toString() {

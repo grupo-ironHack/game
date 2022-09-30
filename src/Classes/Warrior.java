@@ -41,27 +41,7 @@ public class Warrior extends Character implements Attacker {
         setStamina((int)(Math.random()*10+1));
     }
 
-    /*public void chooseYourCharacter() {
-        super.chooseYourCharacter();
-        Scanner warrior1 = new Scanner(System.in);
-        System.out.println("Choose a name for the firs warrior:");
-        String userName1 = warrior1.nextLine();
 
-        Scanner warrior2 = new Scanner(System.in);
-        System.out.println("Choose a name for the second warrior:");
-        String userName2 = warrior2.nextLine();
-
-        Scanner warrior3 = new Scanner(System.in);
-        System.out.println("Choose a name for the third warrior:");
-        String userName3 = warrior3.nextLine();
-
-        ArrayList<String> team = new ArrayList<String>();
-
-        team.add(userName1);
-        team.add(userName2);
-        team.add(userName3);
-
-    }*/
 
     public int hardAttack() {
         int hardAttack = strength;

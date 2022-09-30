@@ -97,6 +97,12 @@ public class Warrior extends Character implements Attacker {
         }
 
     }
+
+
+    public void goingCementery() {
+
+    }
+
     void position() {
 
     }

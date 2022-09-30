@@ -1,13 +1,15 @@
 package Classes;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Party {
-    private List<Character> charctersLives1 = new ArrayList<>();
-    private List<Character> charctersLives2 = new ArrayList<>();
-    private List<Character> charctersDead = new ArrayList<>();
-    private List<Character> character;
+    private ArrayList<Character> charctersLives1 = new ArrayList<>();
+    private ArrayList<Character> charctersLives2 = new ArrayList<>();
+    private ArrayList<Character> charctersDead;
+    private ArrayList<Character> character;
     private final String[] CHARACTERS_NAMES = {
             "Pol", "Charles", "Marina", "Dario", "Axel", "Diana", "Avishai", "Ingrid", "Carles", "Jaume", "Alejandro",
             "Pedro", "Leonardo", "Gandalaf", "Merlin", "Saruman", "Dumbledore", "Harry Potter", "Prospero", "Pikachu",
@@ -22,7 +24,7 @@ public class Party {
     }
 
     //    OJO con el constructor y los getters y setter
-    public Party(List<Character> charctersLives, List<Character> charctersDead, List<Character> character) {
+    public Party(ArrayList<Character> charctersLives, ArrayList<Character> charctersDead, ArrayList<Character> character) {
         setCharacter(charctersLives);
         this.charctersDead = charctersDead;
         this.character = character;
@@ -33,27 +35,27 @@ public class Party {
         this.wizard = wizard;
     }
 
-    public List<Character> getCharctersLives() {
+    public ArrayList<Character> getCharctersLives() {
         return charctersLives1;
     }
 
-    public void setCharctersLives(List<Character> charctersLives) {
+    public void setCharctersLives(ArrayList<Character> charctersLives) {
         this.charctersLives1 = charctersLives;
     }
 
-    public List<Character> getCharctersDead() {
+    public ArrayList<Character> getCharctersDead() {
         return charctersDead;
     }
 
-    public void setCharctersDead(List<Character> charctersDead) {
+    public void setCharctersDead(ArrayList<Character> charctersDead) {
         this.charctersDead = charctersDead;
     }
 
-    public List<Character> getCharacter() {
+    public ArrayList<Character> getCharacter() {
         return character;
     }
 
-    public void setCharacter(List<Character> character) {
+    public void setCharacter(ArrayList<Character> character) {
         this.character = character;
     }
 
@@ -115,6 +117,8 @@ public class Party {
                 System.out.println("End case 1  " + charctersLives1.toString() + "\n");
                 System.out.println("End case 1  " + charctersLives2.toString() + "\n");
                 battlePers(charctersLives1, charctersLives2);
+
+
 //                wizard.chooseYourCharacterTeam1();
                 // Here should call, maybe a second method with a team2 inside.
                 break;
@@ -125,6 +129,7 @@ public class Party {
                 System.out.println("Random case 1 => " + charctersLives1.toString());
                 System.out.println("Random case 2 => " + charctersLives2.toString());
                 battlePers(charctersLives1, charctersLives2);
+
                 break;
             case 3:
                 System.out.println("Exit");
@@ -169,75 +174,77 @@ public class Party {
 
         }
 
+        for (int i = 0; i < randomTeam.size(); i++) {
+            for (int j = 1; j < randomTeam.size(); j++) {
+                if (randomTeam.get(i).getName().equals(randomTeam.get(j).getName())) {
+                    randomTeam.get(j).setName(randomTeam.get(j).getName().concat(" Jr"));
+                }
+            }
+        }
         return randomTeam;
     }
 
     public int battlePers(List<Character> team1, List<Character> team2) {
-        warrior = new Warrior();
-        wizard = new Wizard();
+        //warrior = new Warrior();
+        //wizard = new Wizard();
+        while(team1.size() >0 && team2.size() > 0){
+            Character character1 = team1.get(0);
+            Character character2 = team2.get(0);
+            Character fighter1 = null;
+            Character fighter2 = null;
+
+
+            if(character1 instanceof Warrior){
+                fighter1 = (Warrior) character1;
+            }else{
+                Wizard fighter1 = (Wizard) character1;
+            }
+
+            if(character2 instanceof Warrior){
+                Warrior fighter2 = (Warrior) character2;
+            }else{
+                Wizard fighter2 = (Wizard) character2;
+            }
+
+            while (fighter1.isAlive() && fighter2.isAlive()){
+                fighter1.setHp(fighter1.getHp() - fighter2.);
+            }
+        }
+
+
+
+
+        if()
+        int damage = 0;
         for (int i = 0; i < team1.size(); i++) {
             if (team1.get(i) == warrior) {
                 System.out.println(team1.get(i).getName());
                 System.out.println(team2.get(i).getHp() - warrior.typeAttack());
                 return warrior.typeAttack();
             } else {
-            //    System.out.println(team2.get(i).getHp() - wizard.typeAttack());
+                System.out.println(team1.get(i + 1).getName());
+                System.out.println(team2.get(i).getHp() - wizard.typeAttack());
                 return wizard.typeAttack();
             }
-        }
-        return wizard.typeAttack();
+        }damage = warrior.typeAttack();
+        for (int j = 0; j < team2.size(); j++) {
 
-         /*  for (int i = 0; i < team1.size(); i++) {
-               if(team1.get(i) == warrior)
-                   warrior.typeAttack();
-               else
-                   wizard.typeAttack();
-               for (int j = 1; j < team2.size(); j++) {
-                   if (team2.get(i) == warrior)
-                       warrior.typeAttack();
-                   else
-                       wizard.typeAttack();
-                   }
-               }
-*/           }
-      // }
-
-       //List<Character> teams = new ArrayList<>();
-
-        /*    if(team1.get(0)== warrior && team2.get(0) == warrior)
-               return warrior.typeAttack() & warrior.typeAttack();
-            if(team1.get(0) == warrior && team2.get(0) == wizard)
-                return warrior.typeAttack() & wizard.typeAttack();
-            if(team1.get(0) == wizard && team2.get(0) == warrior)
-                return wizard.typeAttack() & warrior.typeAttack();
-            if(team1.get(0)==wizard && team2.get(0) == wizard)
-                return wizard.typeAttack() & wizard.typeAttack();
-
-            return ;
+            if (team2.get(0) == warrior) {
+                System.out.println(team2.get(j).getName());
+                System.out.println(team1.get(j).getHp() - warrior.typeAttack());
+                return warrior.typeAttack();
+            } else {
+                System.out.println(team1.get(j + 1).getName());
+                System.out.println(team2.get(j).getHp() - wizard.typeAttack());
+                return wizard.typeAttack();
             }
-*/
-       /*for (int i = 0; i < team1.size(); i++) {
-           if (team1.get(i) == warrior) {
-               warrior.typeAttack();
-           } else {
-               //System.out.println(team1.get(i+1).getName());
-               wizard.typeAttack();
-           }
-           for (int j = 0; j < team2.size(); j++) {
-               if (team2.get(j) == wizard) {
-                   wizard.typeAttack();
-               } else {
-                   warrior.typeAttack();
-               }
-           }
-           System.out.println("Start battle");
-       }return 0;
-*/
-       // if(team2.get(0) == warrior) {
-       //   warrior.typeAttack();
-       //}else{
-       //  wizard.typeAttack();
-   }
+
+        }return  wizard.typeAttack();
+
+
+    }
+}
+
 
 
 

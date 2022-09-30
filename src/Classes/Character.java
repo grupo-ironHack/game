@@ -158,6 +158,7 @@ public abstract class Character {
                 '}';
     }
 
+
     abstract void position();
 
     abstract void health();

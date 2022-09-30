@@ -38,9 +38,9 @@ public class Wizard extends Character implements Attacker {
         return fireBall;
     }
     public int restManaFireBall(){
-       int mana1 = mana -5;
+        int mana1 = mana -5;
         System.out.println("you have: " + mana1 + " of mana");
-       return mana1;
+        return mana1;
     }
 
     public int restManaStick(){
@@ -59,8 +59,12 @@ public class Wizard extends Character implements Attacker {
         if (mana > 5){
             return fireBall();
         } else {
-             return hitStick();
+            return hitStick();
         }
+
+    }
+
+    public void goingCementery() {
 
     }
     void position() {

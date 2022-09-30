@@ -1,22 +1,15 @@
 import Classes.Index;
 import Classes.Party;
 import Classes.Warrior;
-import Classes.Character;
+import Classes.Wizard;
 
+import java.sql.SQLOutput;
 
 public class Main {
     public static void main(String[] args) {
-        Party num1 = new Party();
-        Party num2 = new Party();
-        //System.out.println(num1.battlePers(num1.createRandomParty(),num2.superRandom()));
 
-
-        Warrior wiz = new Warrior("Obi",10, 3, 80);
-
-        System.out.println(wiz.typeAttack());
-
-
-
+        Warrior war = new Warrior("Pol", 100, 2, 50);
+        System.out.println(war.getStamina());
 
         Index Steps = new Index();
         Party partyStep = new Party();
@@ -52,7 +45,6 @@ public class Main {
 
             }
         }
-
 
     }
 

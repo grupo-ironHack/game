@@ -33,13 +33,26 @@ public class Wizard extends Character implements Attacker {
 
     public int fireBall(){
         int fireBall = intelligence;
-        mana = mana - 5;
+        restManaFireBall();
+        System.out.println("The damage of this attack is: ");
         return fireBall;
+    }
+    public int restManaFireBall(){
+       int mana1 = mana -5;
+        System.out.println("you have: " + mana1 + " of mana");
+       return mana1;
+    }
+
+    public int restManaStick(){
+        int mana1 = mana + 1;
+        System.out.println("Your current mana is: " + mana1);
+        return mana1;
     }
 
     public int hitStick(){
         int stickStrike = 2;
-        mana = mana + 1;
+        restManaStick();
+        System.out.println("The damage of this attack is: ");
         return stickStrike;
     }
     public int typeAttack() {
@@ -48,10 +61,6 @@ public class Wizard extends Character implements Attacker {
         } else {
              return hitStick();
         }
-
-    }
-
-    public void goingCementery() {
 
     }
     void position() {

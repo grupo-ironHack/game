@@ -123,7 +123,7 @@ public abstract class Character {
                     // verficar porque si hay dos errores consecutivos el tercero lo salta con lenextInt()....
                     valueStrength = sc.nextInt();
                 }
-                warrior = new Warrior(String.valueOf(nameCharacter), valueStamina, valueStrength);
+                warrior = new Warrior(String.valueOf(nameCharacter),100, valueStamina, valueStrength);
                 team1.add(warrior);
             } else {
                 System.out.println("wrong number, Choose the kind of character, press 1 for wizard or 2 for warrior");
@@ -157,7 +157,6 @@ public abstract class Character {
                 ", characters=" + characters +
                 '}';
     }
-
 
     abstract void position();
 

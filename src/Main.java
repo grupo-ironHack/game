@@ -1,9 +1,21 @@
 import Classes.Index;
 import Classes.Party;
-import Classes.Wizard;
+import Classes.Warrior;
+import Classes.Character;
+
 
 public class Main {
     public static void main(String[] args) {
+        Party num1 = new Party();
+        Party num2 = new Party();
+        //System.out.println(num1.battlePers(num1.createRandomParty(),num2.superRandom()));
+
+
+        Warrior wiz = new Warrior("Obi",10, 3, 80);
+
+        System.out.println(wiz.typeAttack());
+
+
 
 
         Index Steps = new Index();
@@ -40,6 +52,7 @@ public class Main {
 
             }
         }
+
 
     }
 

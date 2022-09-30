@@ -65,16 +65,28 @@ public class Warrior extends Character implements Attacker {
 
     public int hardAttack() {
         int hardAttack = strength;
-        stamina = stamina - 5;
-        // damage ==  strength
-    return hardAttack;}
+        restStaminaHard();
+        System.out.println("The damage of this attack is: ");
+        return hardAttack;
+    }
 
-    public int softAttack(){
-        BigDecimal softAttack = (BigDecimal.valueOf(strength / 2).setScale(2, RoundingMode.DOWN));
-                strength = strength + 1;
-                //Big Decimal damage = strength / 2
-    return softAttack();}
+    public int restStaminaHard(){
+        int stamina1 = stamina - 5;
+        System.out.println("Your current stamina is: " + stamina1);
+        return stamina1;
+    }
 
+    public int softStrength(){
+        int strength1 = strength + 1;
+        System.out.println("Your current strength is: " + strength1);
+        return strength1;
+    }
+    public int softAttack() {
+        int softAttack1 = strength / 2;
+        softStrength();
+        System.out.println("The damage of this attack is: ");
+        return softAttack1;
+    }
 
 
     public int typeAttack() {
@@ -85,13 +97,6 @@ public class Warrior extends Character implements Attacker {
         }
 
     }
-
-
-
-    public void goingCementery() {
-
-    }
-
     void position() {
 
     }
